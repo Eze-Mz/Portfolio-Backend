@@ -32,7 +32,7 @@ import com.portfolio.PortfolioBackend.security.services.UsuarioService;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class AuthController {
 
     @Autowired
