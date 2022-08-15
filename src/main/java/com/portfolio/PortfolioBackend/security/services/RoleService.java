@@ -20,4 +20,5 @@ public class RoleService {
     public Optional<Role> getByRoleName(RoleList roleName) {
         return roleRepository.findByRoleName(roleName);
     }
+
 }
