@@ -102,4 +102,7 @@ public class UsuarioDTO {
         this.link_2 = link_2;
     }
 
+    public UsuarioDTO() {
+    }
+
 }

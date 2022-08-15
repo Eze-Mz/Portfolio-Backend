@@ -9,6 +9,9 @@ public class ProyectoDTO extends GenericDTO {
     private String link_repo;
     private String descripcion;
 
+    public ProyectoDTO() {
+    }
+
     public Long getId_proyecto() {
         return this.id_proyecto;
     }
