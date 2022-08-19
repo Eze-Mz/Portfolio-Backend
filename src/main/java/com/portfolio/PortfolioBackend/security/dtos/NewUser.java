@@ -3,10 +3,15 @@ package com.portfolio.PortfolioBackend.security.dtos;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.NotBlank;
+
 public class NewUser {
 
+    @NotBlank
     private String email;
+    @NotBlank
     private String password;
+    @NotBlank
     private String nombre;
     private String puesto;
     private String img_hero;

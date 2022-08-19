@@ -1,11 +1,11 @@
 package com.portfolio.PortfolioBackend.security.dtos;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 public class LoginUser {
-    @NotNull
+    @NotBlank
     private String email;
-    @NotNull
+    @NotBlank
     private String password;
 
     public String getEmail() {

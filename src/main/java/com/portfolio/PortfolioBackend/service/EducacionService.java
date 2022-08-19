@@ -60,13 +60,6 @@ public class EducacionService implements IEducacionService {
     }
 
     @Override
-    public List<EducacionDTO> obtenerEducacionPorUsuarioId(Long userId) {
-        List<Educacion> educacion = eduRepo.findByUsuarioId(userId);
-        // List<Experiencia> experiencias = expRepo.findByUsuarioId(userId);
-        return educacion.stream().map(exp -> mapearDTO(exp)).collect(Collectors.toList());
-    }
-
-    @Override
     public List<EducacionDTO> obtenerEducacionPorUsuarioEmail(String user_email) {
         List<Educacion> educacionList = eduRepo.findByUsuarioEmail(user_email);
         return educacionList.stream().map(exp -> mapearDTO(exp)).collect(Collectors.toList());

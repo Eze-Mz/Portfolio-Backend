@@ -9,8 +9,6 @@ public interface IProyectoService {
 
     public void borrarProyecto(Long id);
 
-    public List<ProyectoDTO> obtenerProyectoPorUsuarioId(Long userId);
-
     public List<ProyectoDTO> obtenerProyectoPorUsuarioEmail(String user_email);
 
     public ProyectoDTO actualizarProyecto(ProyectoDTO proyectoDTO, Long user_id, Long id);

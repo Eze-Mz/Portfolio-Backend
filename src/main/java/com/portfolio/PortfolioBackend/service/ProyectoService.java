@@ -62,12 +62,6 @@ public class ProyectoService implements IProyectoService {
     }
 
     @Override
-    public List<ProyectoDTO> obtenerProyectoPorUsuarioId(Long userId) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     public List<ProyectoDTO> obtenerProyectoPorUsuarioEmail(String user_email) {
         List<Proyecto> proyectos = proyectRepo.findByUsuarioEmail(user_email);
         return proyectos.stream().map(proyecto -> mapearDTO(proyecto)).collect(Collectors.toList());

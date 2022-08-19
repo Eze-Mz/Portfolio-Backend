@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +37,8 @@ import com.portfolio.PortfolioBackend.security.services.UsuarioService;
 @CrossOrigin
 public class AuthController {
 
+    private final static Logger logger = LoggerFactory.getLogger(AuthController.class);
+
     @Autowired
     AuthenticationManagerBuilder authenticationManagerBuilder;
     @Autowired
@@ -60,7 +64,7 @@ public class AuthController {
             JwtDto jwtDto = new JwtDto(jwt);
             return new ResponseEntity<>(jwtDto, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<Object>("Revise sus credenciales" + e, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<Object>("Revise sus credenciales", HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -78,7 +82,6 @@ public class AuthController {
         Set<Role> roles = new HashSet<>();
         roles.add(roleService.getByRoleName(RoleList.ROLE_USER).get());
         usuario.setRoles(roles);
-        Usuario nuevo = usuarioService.crearUsuario(usuario);
-        return new ResponseEntity<>(nuevo, HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

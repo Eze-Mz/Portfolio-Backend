@@ -58,16 +58,8 @@ public class ExperienciaService implements IExperienciaService {
     }
 
     @Override
-    public List<ExperienciaDTO> obtenerExperienciaPorUsuarioId(Long userId) {
-        List<Experiencia> experiencias = expRepo.findByUsuarioId(userId);
-        // List<Experiencia> experiencias = expRepo.findByUsuarioId(userId);
-        return experiencias.stream().map(exp -> mapearDTO(exp)).collect(Collectors.toList());
-    }
-
-    @Override
     public List<ExperienciaDTO> obtenerExperienciaPorUsuarioEmail(String user_email) {
         List<Experiencia> experiencias = expRepo.findByUsuarioEmail(user_email);
-        // List<Experiencia> experiencias = expRepo.findByUsuarioId(userId);
         return experiencias.stream().map(exp -> mapearDTO(exp)).collect(Collectors.toList());
     }
 

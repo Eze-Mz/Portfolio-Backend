@@ -48,11 +48,6 @@ public class Controller {
     private IHabilidadService skillService;
 
     // USER ENDPOINTS
-    @PostMapping("/user")
-    public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario user) {
-        return new ResponseEntity<>(userService.crearUsuario(user), HttpStatus.CREATED);
-    }
-
     @DeleteMapping("/user/{id}")
     public void borrarUsuario(@PathVariable Long id) {
         userService.borrarUsuario(id);
@@ -66,6 +61,7 @@ public class Controller {
     @GetMapping("/user/{email}")
     public ResponseEntity<UsuarioDTO> buscarUsuarioPorEmail(@PathVariable String email) {
         Usuario usuario = userService.getByEmail(email).get();
+        // podría hacer esto en el servicio directamente
         UsuarioDTO usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getNombre(), usuario.getEmail(),
                 usuario.getImg_hero(), usuario.getImg_perfil(), usuario.getPuesto(), usuario.getSobre_mi(),
                 usuario.getLink_1(), usuario.getLink_2());
@@ -104,7 +100,6 @@ public class Controller {
         if ("experiences".equals(data_id)) {
             return expService.obtenerExperienciaPorUsuarioEmail(user_email);
         }
-
         if ("education".equals(data_id)) {
             return eduService.obtenerEducacionPorUsuarioEmail(user_email);
         }
@@ -143,8 +138,11 @@ public class Controller {
     @PutMapping("/data/{user_id}/{data_id}/{id}")
     public ResponseEntity<GenericDTO> updateData(@RequestBody GenericDTO data, @PathVariable Long user_id,
             @PathVariable String data_id, @PathVariable Long id) {
+        // puedo obtener el id de esta manera tmb, qué conviene?
         if ("experiences".equals(data_id)) {
-            return new ResponseEntity<>(expService.actualizarExperiencia((ExperienciaDTO) data, user_id, id),
+            return new ResponseEntity<>(
+                    expService.actualizarExperiencia((ExperienciaDTO) data, user_id,
+                            ((ExperienciaDTO) data).getId_exp()),
                     HttpStatus.OK);
         }
         if ("education".equals(data_id)) {

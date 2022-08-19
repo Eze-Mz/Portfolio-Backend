@@ -9,8 +9,6 @@ public interface IHabilidadService {
 
     public void borrarHabilidad(Long id);
 
-    public List<HabilidadDTO> obtenerHabilidadPorUsuarioId(Long userId);
-
     public List<HabilidadDTO> obtenerHabilidadPorUsuarioEmail(String user_email);
 
     public HabilidadDTO actualizarHabilidad(HabilidadDTO skillDto, Long user_id, Long id);

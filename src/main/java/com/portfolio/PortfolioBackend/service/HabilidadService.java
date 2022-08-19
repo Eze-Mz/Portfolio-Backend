@@ -55,12 +55,6 @@ public class HabilidadService implements IHabilidadService {
     }
 
     @Override
-    public List<HabilidadDTO> obtenerHabilidadPorUsuarioId(Long userId) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
     public List<HabilidadDTO> obtenerHabilidadPorUsuarioEmail(String user_email) {
         List<Habilidad> skills = skillRepo.findByUsuarioEmail(user_email);
         return skills.stream().map(skill -> mapearDTO(skill)).collect(Collectors.toList());

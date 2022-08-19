@@ -8,8 +8,6 @@ public interface IExperienciaService {
 
     public void borrarExperiencia(Long id);
 
-    public List<ExperienciaDTO> obtenerExperienciaPorUsuarioId(Long userId);
-
     public List<ExperienciaDTO> obtenerExperienciaPorUsuarioEmail(String user_email);
 
     public ExperienciaDTO actualizarExperiencia(ExperienciaDTO expDto, Long user_id, Long exp_id);
