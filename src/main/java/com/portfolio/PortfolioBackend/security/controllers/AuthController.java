@@ -82,6 +82,6 @@ public class AuthController {
         Set<Role> roles = new HashSet<>();
         roles.add(roleService.getByRoleName(RoleList.ROLE_USER).get());
         usuario.setRoles(roles);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(usuarioService.crearUsuario(usuario), HttpStatus.CREATED);
     }
 }

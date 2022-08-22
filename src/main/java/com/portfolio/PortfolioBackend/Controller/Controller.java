@@ -47,6 +47,11 @@ public class Controller {
     @Autowired
     private IHabilidadService skillService;
 
+    @GetMapping("/")
+    public ResponseEntity<?> serverRunning() {
+        return new ResponseEntity<>("<h1> The server is running </h1>", HttpStatus.OK);
+    }
+
     // USER ENDPOINTS
     @DeleteMapping("/user/{id}")
     public void borrarUsuario(@PathVariable Long id) {
