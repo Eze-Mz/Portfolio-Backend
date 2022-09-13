@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.portfolio</groupId>
     <artifactId>Portfolio-Backend</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Portfolio-Backend</name>
     <description>Backend para el portfolio deesarrollado en Argentina Programa</description>
     <dependencies>
