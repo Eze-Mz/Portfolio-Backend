@@ -29,7 +29,7 @@ public class JwtProvider {
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
     // clave para verificar el token
-    private String secret = System.getProperties().getProperty("jwt.secret");
+    private String secret = "secret123secret13541533654531563741531654AKSJDHAKJDHSAKDrtdgfdertd456";
     // @Value("${jwt.secret}")
     // private String secret;
 
