@@ -119,7 +119,9 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                    <target>1.1</target>
                 </configuration>
+                
             </plugin>
         </plugins>
     </build>
