@@ -29,6 +29,7 @@ public class JwtProvider {
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
     // clave para verificar el token
+    private String secret2 = System.getProperties().getProperty("jwt.secret");
     @Value("${jwt.secret}")
     private String secret;
 
@@ -38,6 +39,7 @@ public class JwtProvider {
 
     // función que crea el token
     public String generateToken(Authentication auth) {
+        logger.info(secret2);
         MainUser mainUser = (MainUser) auth.getPrincipal();
         SecretKey key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
 
