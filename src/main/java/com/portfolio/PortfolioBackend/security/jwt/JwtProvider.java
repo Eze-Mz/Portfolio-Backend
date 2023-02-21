@@ -29,9 +29,9 @@ public class JwtProvider {
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
     // clave para verificar el token
-    // private String secret2 = System.getProperties().getProperty("jwt.secret");
-    @Value("${jwt.secret}")
-    private String secret;
+    private String secret = System.getProperties().getProperty("jwt.secret");
+    // @Value("${jwt.secret}")
+    // private String secret;
 
     // tiempo base de expiración
     @Value("${jwt.expiration}")
