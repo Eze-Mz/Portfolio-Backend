@@ -3,7 +3,7 @@ package com.portfolio.PortfolioBackend.security.dtos;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 
 public class NewUser {
 

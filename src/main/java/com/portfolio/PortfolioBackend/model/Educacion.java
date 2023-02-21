@@ -1,17 +1,18 @@
 package com.portfolio.PortfolioBackend.model;
 
 import com.portfolio.PortfolioBackend.security.entities.Usuario;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter
+@Getter
+@Setter
 @Entity
 public class Educacion {
     @Id
@@ -22,7 +23,7 @@ public class Educacion {
     private String img_inst;
     private String fechas;
     private String descripcion;
-    
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", nullable = false)
     Usuario usuario;
@@ -30,7 +31,8 @@ public class Educacion {
     public Educacion() {
     }
 
-    public Educacion(Long id_ed, String titulo, String institucion, String img_inst, String fechas, String descripcion, Usuario usuario) {
+    public Educacion(Long id_ed, String titulo, String institucion, String img_inst, String fechas, String descripcion,
+            Usuario usuario) {
         this.id_ed = id_ed;
         this.titulo = titulo;
         this.institucion = institucion;

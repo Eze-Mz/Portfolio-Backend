@@ -37,9 +37,10 @@ public class SecurityConfig {
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 // peticiones sin autenticación al endpoint auth
-                .authorizeRequests().antMatchers("/auth/**", "/user/{email}", "/user/exists/{email}", "/user/list", "/")
+                .authorizeHttpRequests()
+                .requestMatchers("/auth/**", "/user/{email}", "/user/exists/{email}", "/user/list", "/")
                 .permitAll()
-                .antMatchers(HttpMethod.GET, "/data/{user_email}/{data_id}").permitAll()
+                .requestMatchers(HttpMethod.GET, "/data/{user_email}/{data_id}").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
